@@ -1,1 +1,29 @@
 @import 'tailwindcss';
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+.debug {
+    border: 1px solid red;
+}
+
+@layer components {
+    .container-app {
+        @apply mx-auto max-w-[1800px];
+    }
+}
+
+@theme {
+    /* Fuentes */
+    --font-outfit: "Outfit", sans-serif;
+    --font-manrope: "Manrope", sans-serif;
+    --font-jetbrain: "JetBrains Mono", monospace;
+    /* Colores */
+    --color-blue-primary: #003FFD;
+    --color-blue-secondary: #00e5ff;
+
+    --color-green-primary: #39ff14;
+    /* Container */
+    --container-app: @app;
+}
