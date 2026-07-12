@@ -3,7 +3,7 @@ import { FiCoffee } from "react-icons/fi";
 
 function NavBar() {
   return (
-    <header className="container-app debug">
+    <header className="container-app">
       <nav className="flex justify-between items-center mx-10 py-3">
         {/* Logo */}
         <Link to="/welcome" className="flex items-center gap-3">
