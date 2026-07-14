@@ -5,7 +5,6 @@ import clsx from "clsx";
 import Button from "@/shared/components/Button";
 import OutlineButton from "@/shared/components/OutlineButton";
 import StatCard from "@/shared/components/StatCard";
-import LayoutWelcome from "@/shared/components/LayoutWelcome";
 import MenuCard from "@/shared/components/MenuCard";
 import GameCard from "@/shared/components/GameCard";
 import RatingCard from "@/shared/components/RatingCard";
@@ -133,7 +132,7 @@ function Welcome() {
     maintenance: "bg-orange-500",
   };
   return (
-    <LayoutWelcome>
+    <>
       {/* HEADER */}
       <section className="mt-12">
         <div className="container-app">
@@ -161,7 +160,7 @@ function Welcome() {
 
               <div className="flex gap-4 my-8">
                 <Button text="Reservar Ahora" icon={<IoIosArrowForward />} />
-                <OutlineButton texto="Explorar Cabinas" />
+                <OutlineButton text="Explorar Cabinas" />
               </div>
 
               <div className="gap-4 grid grid-cols-3">
@@ -344,7 +343,7 @@ function Welcome() {
           <Button icon={<IoIosArrowForward />} text="Crear cuenta gratis" />
         </span>
       </section>
-    </LayoutWelcome>
+    </>
   );
 }
 

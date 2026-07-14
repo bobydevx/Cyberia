@@ -1,11 +1,12 @@
+import { Outlet } from "react-router";
 import Footer from "./Footer";
 import NavBar from "./Navbar";
 
-function LayoutWelcome({ children }) {
+function LayoutWelcome() {
   return (
     <>
       <NavBar />
-      {children}
+      <Outlet />
       <Footer />
     </>
   );
