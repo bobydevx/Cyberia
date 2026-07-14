@@ -14,7 +14,7 @@ function Leftbar() {
     <aside className="top-0 sticky bg-gray-950/85 border-r border-r-white/10 h-screen">
       {/* Logo  */}
       <div className="p-6 border-b border-b-white/10">
-        <Link to="/welcome" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <span className="font-black text-blue-secondary text-2xl">
             <FiCoffee />
           </span>

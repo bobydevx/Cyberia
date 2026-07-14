@@ -16,12 +16,15 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         {/* Welcome Page */}
-        <Route path="welcome" element={<Welcome />} />
+        <Route index element={<Welcome />} />
+
+        {/* <Route path="welcome" element={<Welcome />} /> */}
       </Route>
 
       {/* Layout (leftbar) */}
       <Route element={<Layout />}>
-        <Route index element={<Dashboard />} />
+        {/* <Route index element={<Dashboard />} /> */}
+        <Route path="dashboard" element={<Dashboard />} />
         <Route path="cabinas" element={<Welcome />} />
         <Route path="mis-reservas" element={<Welcome />} />
         <Route path="juegos" element={<Welcome />} />
