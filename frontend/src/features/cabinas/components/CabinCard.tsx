@@ -4,6 +4,10 @@ import { CiStar } from "react-icons/ci";
 import { BsLightningCharge } from "react-icons/bs";
 import clsx from "clsx";
 
+type Props = Cabin & {
+  show?: boolean;
+};
+
 function CabinCard({
   id,
   name,
@@ -13,7 +17,8 @@ function CabinCard({
   processor,
   ram,
   image,
-}: Cabin) {
+  show = false,
+}: Props) {
   // Componentes PC
 
   const specs = [
@@ -100,6 +105,19 @@ function CabinCard({
             </div>
           ))}
         </div>
+
+        {show && (
+          <button
+            className={clsx(
+              "gap-1 px-8 py-4 rounded-lg w-full font-bold text-black text-center uppercase",
+              status === "available"
+                ? "bg-blue-secondary cursor-pointer"
+                : "bg-blue-secondary/10 cursor-not-allowed",
+            )}
+          >
+            Reservar
+          </button>
+        )}
       </div>
     </div>
   );
