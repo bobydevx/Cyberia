@@ -6,6 +6,7 @@ import LayoutWelcome from "@/shared/components/LayoutWelcome";
 import Register from "@/features/auth/pages/register";
 import Dashboard from "@/features/dashboard/pages/dashboard";
 import Layout from "@/shared/components/Layout";
+import Cabinas from "@/features/cabinas/pages/cabinas";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
       <Route element={<Layout />}>
         {/* <Route index element={<Dashboard />} /> */}
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="cabinas" element={<Welcome />} />
+        <Route path="cabinas" element={<Cabinas />} />
         <Route path="mis-reservas" element={<Welcome />} />
         <Route path="juegos" element={<Welcome />} />
         <Route path="menu" element={<Welcome />} />
