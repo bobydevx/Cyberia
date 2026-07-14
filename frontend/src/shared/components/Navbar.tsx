@@ -6,7 +6,7 @@ function NavBar() {
     <header className="container-app">
       <nav className="flex justify-between items-center mx-10 py-3">
         {/* Logo */}
-        <Link to="/welcome" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <span className="font-black text-blue-secondary text-2xl">
             <FiCoffee />
           </span>
