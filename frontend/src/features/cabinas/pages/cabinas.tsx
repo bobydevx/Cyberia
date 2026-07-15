@@ -74,8 +74,28 @@ function Cabinas() {
 
     return c.status === status;
   });
+
+  const filters = [
+    {
+      label: "Todas",
+      value: "all",
+    },
+    {
+      label: "Disponibles",
+      value: "available",
+    },
+    {
+      label: "Reservadas",
+      value: "reserve",
+    },
+    {
+      label: "Mantenimiento",
+      value: "maintenance",
+    },
+  ];
+
   return (
-    <section className="bg-gray-950 p-8 w-full">
+    <section className="bg-linear-to-b from-gray-950 via-[#111827] to-black px-12 py-10 w-full min-h-screen">
       <div className="space-y-2">
         <p className="font-mono text-blue-secondary uppercase">Explorar</p>
         <h1 className="font-outfit font-black text-4xl">
@@ -87,31 +107,24 @@ function Cabinas() {
       </div>
 
       <div className="flex items-center gap-2 mt-6 text-gray-500">
-        <CiFilter />
-        <button
-          onClick={() => setStatus("")}
-          className="px-2 border border-white/10 rounded-full font-mono uppercase cursor-pointer"
-        >
-          Todas
-        </button>
-        <button
-          onClick={() => setStatus("available")}
-          className="px-2 border border-white/10 rounded-full font-mono uppercase cursor-pointer"
-        >
-          Disponibles
-        </button>
-        <button
-          onClick={() => setStatus("reserve")}
-          className="px-2 border border-white/10 rounded-full font-mono uppercase cursor-pointer"
-        >
-          Reservadas
-        </button>
-        <button
-          onClick={() => setStatus("maintenance")}
-          className="px-2 border border-white/10 rounded-full font-mono uppercase cursor-pointer"
-        >
-          Mantenimiento
-        </button>
+        <div className="flex justify-center items-center bg-white/5 border border-white/10 rounded-full w-11 h-11 text-gray-300 text-xl">
+          <CiFilter />
+        </div>
+        {filters.map((filter) => (
+          <button
+            key={filter.value}
+            onClick={() => setStatus(filter.value)}
+            className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 cursor-pointer
+              ${
+                status === filter.value
+                  ? "bg-blue-secondary text-white shadow-lg shadow-blue-secondary/30"
+                  : "border border-white/10 bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+              }
+            `}
+          >
+            {filter.label}
+          </button>
+        ))}
       </div>
 
       {cabinasFiltradas && cabinasFiltradas.length >= 1 && (
