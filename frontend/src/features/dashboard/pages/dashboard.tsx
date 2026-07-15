@@ -1,3 +1,5 @@
+import ReservaCard from "@/features/reservas/components/ReservaCard";
+import type { Reserva } from "@/features/reservas/types/reserva";
 import Button from "@/shared/components/Button";
 import { useState } from "react";
 import { BsActivity } from "react-icons/bs";
@@ -12,15 +14,16 @@ import { Link } from "react-router";
 function Dashboard() {
   const [user, setUser] = useState({ username: "fk-user", rol: "sesión" });
 
-  const [reservas, setReservas] = useState([
+  const [reservas, setReservas] = useState<Reserva[]>([
     {
       id: 0,
-      usuario_id: 1,
-      cabina_id: 1,
-      fecha: "14/07/2026",
-      hora_inicio: "19:10",
-      hora_fin: "23:30",
-      precio: 14,
+      user_id: 1,
+      cabin_id: 1,
+      date: "14/07/2026",
+      start_time: "19:10",
+      end_time: "23:30",
+      price: 14,
+      status: "reserved",
     },
   ]);
 
@@ -29,31 +32,35 @@ function Dashboard() {
       nombre: "Próximas Reservas",
       valor: reservas.length,
       icono: <CiCalendar />,
-      color: "blue-secondary",
+      color:
+        "text-blue-secondary shadow-blue-secondary/30 from-blue-secondary/10 border-blue-secondary/20",
     },
     {
       nombre: "Reservas Totales",
       valor: reservas.length,
       icono: <IoTrophyOutline />,
-      color: "pink-500",
+      color:
+        "text-pink-500 shadow-pink-500/30 from-pink-500/10 border-pink-500/20",
     },
     {
       nombre: "Sesiones Activas",
       valor: 0,
       icono: <BsActivity />,
-      color: "purple-500",
+      color:
+        "text-purple-500 shadow-purple-500/30 from-purple-500/10 border-purple-500/20",
     },
     {
       nombre: "Total invertido",
       valor:
-        reservas.reduce((total, reserva) => (total += reserva.precio), 0) + "€",
+        reservas.reduce((total, reserva) => (total += reserva.price), 0) + "€",
       icono: <HiOutlineLightningBolt />,
-      color: "blue-secondary",
+      color:
+        "text-blue-secondary shadow-blue-secondary/30 from-blue-secondary/10 border-blue-secondary/20",
     },
   ]);
 
   return (
-    <section className="bg-gray-950 p-8 w-full">
+    <section className="bg-linear-to-b from-gray-950 via-[#111827] to-black px-12 py-10 w-full min-h-screen">
       <div className="space-y-2">
         <p className="font-mono text-blue-secondary uppercase">Dashboard</p>
         <h1 className="font-outfit font-black text-4xl">
@@ -69,7 +76,9 @@ function Dashboard() {
         {/* Stats */}
         {stats &&
           stats.map((stat) => (
-            <div className="flex flex-col gap-2 bg-gray-800/65 p-3 border border-white/10 rounded-md">
+            <div
+              className={`flex flex-col gap-2 p-3 border border-white/10 rounded-md ${stat.color} shadow-lg bg-gradient-to-br  to-transparent backdrop-blur p-5 border rounded-2xl`}
+            >
               <div className="flex justify-between items-center">
                 <span className={`text-lg text-${stat.color}`}>
                   {stat.icono}
@@ -99,17 +108,7 @@ function Dashboard() {
           {reservas && reservas.length >= 1 ? (
             <div className="mx-6">
               {reservas.map((reserva) => (
-                <div className="space-x-5 p-3 border border-white/10 rounded-md">
-                  <span className="font-bold">Cabina {reserva.cabina_id}</span>
-                  <p>
-                    Fecha: <span>{reserva.fecha}</span>{" "}
-                  </p>
-                  <p>
-                    Horario:
-                    {reserva.hora_inicio} - {reserva.hora_fin}
-                  </p>
-                  <p>Precio: {reserva.precio}€</p>
-                </div>
+                <ReservaCard {...reserva} />
               ))}
             </div>
           ) : (
