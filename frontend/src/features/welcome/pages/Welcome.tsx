@@ -6,15 +6,15 @@ import Button from "@/shared/components/Button";
 import OutlineButton from "@/shared/components/OutlineButton";
 import StatCard from "@/shared/components/StatCard";
 import MenuCard from "@/shared/components/MenuCard";
-import GameCard from "@/shared/components/GameCard";
 import RatingCard from "@/shared/components/RatingCard";
 
 // Cabin
 import type { Cabin } from "@/features/cabinas/types/cabin";
 import CabinStatusPanel from "@/features/cabinas/components/CabinStatusPanel";
 import CabinCard from "@/features/cabinas/components/CabinCard";
+import GameCard from "@/features/juegos/components/GameCard";
 import FAQCard from "@/shared/components/FAQCard";
-import type { GameProps } from "../types/game";
+import type { GameProps } from "../../juegos/types/game";
 import type { MenuProps } from "../types/menu";
 
 function Welcome() {

@@ -2,8 +2,9 @@ import { useState } from "react";
 import { PiMedalThin } from "react-icons/pi";
 
 function GameCard({ game }) {
-  const { id, background_image, name, rating, genres = [] } = game;
+  const { id, background_image, name, rating, genres = [], platforms } = game;
 
+  const names = platforms?.map((p) => p.name).join(", ");
   const [randomRating] = useState(() => (Math.random() + 4).toFixed(1));
 
   return (
@@ -15,13 +16,15 @@ function GameCard({ game }) {
         className="rounded-md h-full object-cover"
       />
 
-      <div className="bottom-4 left-4 absolute">
+      <div className="bottom-4 left-4 absolute px-4">
         <span className="font-jetbrain text-blue-secondary/70 text-sm uppercase">
           {genres[0]?.name || "Variado"}
         </span>
         <h3 className="pt-1 font-outfit font-bold text-md text-white">
           {name}
         </h3>
+
+        <span className="font-jetbrain font-black text-white/60">{names}</span>
       </div>
 
       <div className="top-4 right-2 absolute flex items-center gap-2 bg-gray-900/75 px-4 py-2 rounded-md w-fit">
