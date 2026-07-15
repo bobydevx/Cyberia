@@ -5,7 +5,7 @@ import clsx from "clsx";
 import Button from "@/shared/components/Button";
 import OutlineButton from "@/shared/components/OutlineButton";
 import StatCard from "@/shared/components/StatCard";
-import MenuCard from "@/shared/components/MenuCard";
+import MenuCard from "@/features/menu/components/MenuCard";
 import RatingCard from "@/shared/components/RatingCard";
 
 // Cabin

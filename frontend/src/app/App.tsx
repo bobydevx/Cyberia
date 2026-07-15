@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import "./App.css";
+import "@/app/App.css";
 import Welcome from "@/features/welcome/pages/Welcome";
 import Login from "@/features/auth/pages/login";
 import LayoutWelcome from "@/shared/components/LayoutWelcome";
@@ -9,6 +9,7 @@ import Layout from "@/shared/components/Layout";
 import Cabinas from "@/features/cabinas/pages/cabinas";
 import MisReservas from "@/features/reservas/pages/MisReservas";
 import Juegos from "@/features/juegos/pages/juegos";
+import Menu from "@/features/menu/pages/menu";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
         <Route path="cabinas" element={<Cabinas />} />
         <Route path="mis-reservas" element={<MisReservas />} />
         <Route path="juegos" element={<Juegos />} />
-        <Route path="menu" element={<Welcome />} />
+        <Route path="menu" element={<Menu />} />
       </Route>
     </Routes>
   );
