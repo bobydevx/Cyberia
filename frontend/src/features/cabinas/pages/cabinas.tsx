@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CiFilter } from "react-icons/ci";
-import type { Cabin } from "../types/cabin";
-import CabinCard from "../components/CabinCard";
+import type { Cabin } from "@/features/cabinas/types/cabin";
+import CabinCard from "@/features/cabinas/components/CabinCard";
 
 function Cabinas() {
   const [cabinas, setCabinas] = useState<Cabin[]>([
