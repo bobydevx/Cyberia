@@ -61,7 +61,10 @@ function CabinCard({
   console.log(status);
 
   return (
-    <div key={id} className="border border-white/20">
+    <div
+      key={id}
+      className="hover:shadow-blue-secondary/30 hover:shadow-xl border border-white/20 transition-all hover:-translate-y-1 cursor-pointer"
+    >
       {/* Top */}
       <div className="relative w-full aspect-4/3">
         <img
