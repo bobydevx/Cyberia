@@ -7,9 +7,9 @@ import { CiCalendar } from "react-icons/ci";
 import { HiOutlineLightningBolt } from "react-icons/hi";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { IoTrophyOutline } from "react-icons/io5";
-import { MdArrowOutward } from "react-icons/md";
 import { PiJoystickThin } from "react-icons/pi";
 import { Link } from "react-router";
+import StatCard from "@/features/dashboard/components/StatCard";
 
 function Dashboard() {
   const [user, setUser] = useState({ username: "fk-user", rol: "sesión" });
@@ -74,25 +74,7 @@ function Dashboard() {
 
       <section className="gap-4 grid grid-cols-4 mx-2 mt-6">
         {/* Stats */}
-        {stats &&
-          stats.map((stat) => (
-            <div
-              className={`flex flex-col gap-2 p-3 border border-white/10 rounded-md ${stat.color} shadow-lg bg-gradient-to-br  to-transparent backdrop-blur p-5 border rounded-2xl`}
-            >
-              <div className="flex justify-between items-center">
-                <span className={`text-lg text-${stat.color}`}>
-                  {stat.icono}
-                </span>
-                <span className="text-white/50 text-xs">
-                  <MdArrowOutward />
-                </span>
-              </div>
-              <span className="font-black text-3xl">{stat.valor}</span>
-              <span className="font-mono text-gray-500 text-sm">
-                {stat.nombre}
-              </span>
-            </div>
-          ))}
+        {stats && stats.map((stat) => <StatCard {...stat} />)}
 
         <div className="col-span-3 bg-gray-900 mt-6 border border-white/10 rounded-md">
           <div className="flex justify-between items-center mx-6 p-6">
