@@ -7,7 +7,8 @@ import Register from "@/features/auth/pages/register";
 import Dashboard from "@/features/dashboard/pages/dashboard";
 import Layout from "@/shared/components/Layout";
 import Cabinas from "@/features/cabinas/pages/cabinas";
-import MisReservas from "@/features/reservas/pages/MisReservas";
+import MyReservations from "@/features/reservas/pages/MyReservations";
+import CabinBooking from "@/features/reservas/pages/CabinBooking";
 import Juegos from "@/features/juegos/pages/juegos";
 import Menu from "@/features/menu/pages/menu";
 
@@ -30,7 +31,8 @@ function App() {
         {/* <Route index element={<Dashboard />} /> */}
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="cabinas" element={<Cabinas />} />
-        <Route path="mis-reservas" element={<MisReservas />} />
+        <Route path="mis-reservas" element={<MyReservations />} />
+        <Route path="reserva/:id" element={<CabinBooking />} />
         <Route path="juegos" element={<Juegos />} />
         <Route path="menu" element={<Menu />} />
       </Route>

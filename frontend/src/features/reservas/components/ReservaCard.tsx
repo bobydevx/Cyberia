@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { Reserva } from "../types/reserva";
+import type { Reservation } from "../types/reserva";
 import Field from "./Field";
 import { PiGameControllerThin } from "react-icons/pi";
 import { GoCalendar } from "react-icons/go";
@@ -14,7 +14,7 @@ function ReservaCard({
   end_time,
   price,
   status,
-}: Reserva) {
+}: Reservation) {
   const statusConfig = {
     reserved: {
       label: "Reservada",
@@ -86,7 +86,7 @@ function ReservaCard({
           <Field
             icon={<MdEuroSymbol size={18} className="text-cyan-400" />}
             value={
-              <span className="text-blue-secondary text-xl">
+              <span className="font-black text-blue-secondary text-2xl">
                 {formattedPrice}
               </span>
             }
