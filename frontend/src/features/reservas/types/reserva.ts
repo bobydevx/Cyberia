@@ -1,4 +1,4 @@
-export type Reserva = {
+export type Reservation = {
   id: number;
   user_id: number;
   cabin_id: number;

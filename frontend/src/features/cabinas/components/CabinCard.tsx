@@ -3,6 +3,7 @@ import type { Cabin } from "../types/cabin";
 import { CiStar } from "react-icons/ci";
 import { BsLightningCharge } from "react-icons/bs";
 import clsx from "clsx";
+import { Link } from "react-router";
 
 type Props = Cabin & {
   show?: boolean;
@@ -109,18 +110,24 @@ function CabinCard({
           ))}
         </div>
 
-        {show && (
-          <button
-            className={clsx(
-              "gap-1 px-8 py-4 rounded-lg w-full font-bold text-black text-center uppercase",
-              status === "available"
-                ? "bg-blue-secondary cursor-pointer"
-                : "bg-blue-secondary/10 cursor-not-allowed",
-            )}
-          >
-            Reservar
-          </button>
-        )}
+        {show &&
+          (status === "available" ? (
+            <Link
+              to={`/reserva/${id}`}
+              className={clsx(
+                "block gap-1 px-8 py-4 rounded-lg w-full font-bold text-black text-center uppercase",
+                status === "available"
+                  ? "bg-blue-secondary cursor-pointer"
+                  : "bg-blue-secondary/10 cursor-not-allowed",
+              )}
+            >
+              Reservar
+            </Link>
+          ) : (
+            <span className="block gap-1 bg-blue-secondary/10 px-8 py-4 rounded-lg w-full font-bold text-black text-center uppercase cursor-not-allowed">
+              Reservar
+            </span>
+          ))}
       </div>
     </div>
   );

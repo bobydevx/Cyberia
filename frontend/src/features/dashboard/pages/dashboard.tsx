@@ -1,5 +1,5 @@
 import ReservaCard from "@/features/reservas/components/ReservaCard";
-import type { Reserva } from "@/features/reservas/types/reserva";
+import type { Reservation } from "@/features/reservas/types/reserva";
 import Button from "@/shared/components/Button";
 import { useState } from "react";
 import { BsActivity } from "react-icons/bs";
@@ -14,7 +14,7 @@ import StatCard from "@/features/dashboard/components/StatCard";
 function Dashboard() {
   const [user, setUser] = useState({ username: "fk-user", rol: "sesión" });
 
-  const [reservas, setReservas] = useState<Reserva[]>([
+  const [reservas, setReservas] = useState<Reservation[]>([
     {
       id: 0,
       user_id: 1,
@@ -108,7 +108,7 @@ function Dashboard() {
 
           <div className="space-y-4 mt-4">
             <Link
-              to="cabinas"
+              to="/cabinas"
               className="block space-y-2 bg-gray-900 p-4 border border-white/10 rounded-md"
             >
               <div className="flex items-center gap-2 font-bold text-blue-secondary text-xs uppercase">
@@ -119,7 +119,7 @@ function Dashboard() {
             </Link>
 
             <Link
-              to="juegos"
+              to="/juegos"
               className="block space-y-2 bg-gray-900 p-4 border border-white/10 rounded-md"
             >
               <div className="flex items-center gap-2 font-bold text-pink-500 text-xs uppercase">
@@ -130,7 +130,7 @@ function Dashboard() {
             </Link>
 
             <Link
-              to="menu"
+              to="/menu"
               className="block space-y-2 bg-gray-900 p-4 border border-white/10 rounded-md"
             >
               <div className="flex items-center gap-2 font-bold text-purple-500 text-xs uppercase">

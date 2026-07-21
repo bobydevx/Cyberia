@@ -2,11 +2,11 @@ import Button from "@/shared/components/Button";
 import { useMemo, useState } from "react";
 import { CiFilter } from "react-icons/ci";
 import { PiJoystickThin } from "react-icons/pi";
-import type { Reserva } from "../types/reserva";
+import type { Reservation } from "../types/reserva";
 import ReservaCard from "../components/ReservaCard";
 
-function MisReservas() {
-  const [reservas, setReservas] = useState<Reserva[]>([
+function MyReservations() {
+  const [reservations, setReservations] = useState<Reservation[]>([
     {
       id: 0,
       user_id: 1,
@@ -60,7 +60,7 @@ function MisReservas() {
     },
   ];
 
-  const reservasFiltradas = reservas.filter((r) => {
+  const reservasFiltradas = reservations.filter((r) => {
     if (status === "all") return true;
 
     return r.status === status;
@@ -68,12 +68,12 @@ function MisReservas() {
 
   const stats = useMemo(
     () => ({
-      total: reservas.length,
-      activas: reservas.filter((r) => r.status === "reserved").length,
-      pasadas: reservas.filter((r) => r.status === "outdated").length,
-      canceladas: reservas.filter((r) => r.status === "cancelled").length,
+      total: reservations.length,
+      activas: reservations.filter((r) => r.status === "reserved").length,
+      pasadas: reservations.filter((r) => r.status === "outdated").length,
+      canceladas: reservations.filter((r) => r.status === "cancelled").length,
     }),
-    [reservas],
+    [reservations],
   );
 
   return (
@@ -191,4 +191,4 @@ function MisReservas() {
   );
 }
 
-export default MisReservas;
+export default MyReservations;
