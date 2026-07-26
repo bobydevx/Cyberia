@@ -1,4 +1,4 @@
-import type { Cabin } from "@/features/cabinas/types/cabin";
+import type { Cabin } from "@/features/cabins/types/cabin";
 import FieldReservationCabin from "./FieldReservationCabin";
 import { useMemo } from "react";
 
@@ -69,12 +69,12 @@ function ReservationSummary({ cabin, date, duration, startHour }: Props) {
 
       <div className="flex justify-between items-center py-4 border-t">
         <p className="text-gray-300 uppercase">Total</p>
-        <p className="font-black text-blue-secondary text-3xl">{total}€</p>
+        <p className="font-black text-secondary text-3xl">{total}€</p>
       </div>
 
       <button
         type="submit"
-        className="bg-blue-secondary mx-auto px-6 py-4 rounded-md w-full font-black text-black cursor-progress"
+        className="bg-secondary mx-auto px-6 py-4 rounded-md w-full font-black text-black cursor-progress"
       >
         Confirmar Reserva
       </button>

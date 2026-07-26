@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { Reservation } from "../types/reserva";
+import type { Reservation } from "../types/reservation";
 import Field from "./Field";
 import { PiGameControllerThin } from "react-icons/pi";
 import { GoCalendar } from "react-icons/go";

@@ -10,68 +10,68 @@ import { Link } from "react-router";
 function Leftbar() {
   const [user, setUser] = useState({ username: "fk-user", rol: "sesión" });
 
+  const [linkNav] = useState([
+    {
+      id: "dashboard",
+      name: "Dashboard",
+      href: "/dashboard",
+      icon: <MdOutlineSpaceDashboard />,
+    },
+    {
+      id: "cabins",
+      name: "Cabinas",
+      href: "/cabinas",
+      icon: <PiJoystickLight />,
+    },
+    {
+      id: "reservations",
+      name: "Mis Reservas",
+      href: "/mis-reservas",
+      icon: <GoCalendar />,
+    },
+    {
+      id: "games",
+      name: "Juegos",
+      href: "/juegos",
+      icon: <PiGameControllerThin />,
+    },
+    {
+      id: "menu",
+      name: "Menú",
+      href: "/menu",
+      icon: <CiForkAndKnife />,
+    },
+  ]);
   return (
     <aside className="top-0 sticky bg-gray-950/85 border-r border-r-white/10 h-screen">
       {/* Logo  */}
       <div className="p-6 border-b border-b-white/10">
         <Link to="/" className="flex items-center gap-3">
-          <span className="font-black text-blue-secondary text-2xl">
+          <span className="font-black text-secondary text-2xl">
             <FiCoffee />
           </span>
-          <span className="font-outfit font-black text-lg">CYBERIA</span>
+          <span className="font-black text-lg">CYBERIA</span>
         </Link>
-        <p className="mt-2 font-jetbrain text-[#6b7280] text-sm">Gaming HUB</p>
+        <p className="mt-2 font-jetbrain text-text-secondary text-sm">
+          Gaming HUB
+        </p>
       </div>
       {/*  */}
 
       <nav className="flex-1 space-y-1 p-4">
         <ul>
-          <li>
-            <Link
-              to="/dashboard"
-              className="flex items-center gap-3 hover:bg-white/5 px-3 py-2.5 rounded-lg text-gray-400"
-            >
-              <MdOutlineSpaceDashboard />
-              Dashboard
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/cabinas"
-              className="flex items-center gap-3 hover:bg-white/5 px-3 py-2.5 rounded-lg text-gray-400"
-            >
-              {" "}
-              <PiJoystickLight />
-              Cabinas
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/mis-reservas"
-              className="flex items-center gap-3 hover:bg-white/5 px-3 py-2.5 rounded-lg text-gray-400"
-            >
-              <GoCalendar />
-              Mis Reservas
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/juegos"
-              className="flex items-center gap-3 hover:bg-white/5 px-3 py-2.5 rounded-lg text-gray-400"
-            >
-              <PiGameControllerThin />
-              Juegos
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/menu"
-              className="flex items-center gap-3 hover:bg-white/5 px-3 py-2.5 rounded-lg text-gray-400"
-            >
-              <CiForkAndKnife />
-              Menú
-            </Link>
-          </li>
+          {linkNav &&
+            linkNav.map((link) => (
+              <li>
+                <Link
+                  to={link.href}
+                  className="flex items-center gap-3 hover:bg-white/5 px-3 py-2.5 rounded-lg text-gray-400"
+                >
+                  {link.icon}
+                  {link.name}
+                </Link>
+              </li>
+            ))}
         </ul>
       </nav>
 

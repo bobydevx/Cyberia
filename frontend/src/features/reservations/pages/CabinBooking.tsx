@@ -1,4 +1,4 @@
-import type { Cabin } from "@/features/cabinas/types/cabin";
+import type { Cabin } from "@/features/cabins/types/cabin";
 import { useMemo, useState } from "react";
 import { useParams } from "react-router";
 import { mockCabins } from "../data/cabins.mock";
@@ -64,9 +64,9 @@ function CabinBooking() {
     <section className="bg-linear-to-b from-gray-950 via-[#111827] to-black px-12 py-10 w-full min-h-screen">
       <div className="space-y-2">
         <p className="font-mono text-blue-secondary uppercase">Dashboard</p>
-        <h1 className="font-outfit font-black text-4xl">
+        <h1 className="font-black text-4xl">
           Configura tu{" "}
-          <span className="bg-clip-text bg-linear-to-b from-blue-secondary to-blue-primary text-transparent">
+          <span className="bg-clip-text bg-linear-to-b from-secondary to-primary text-transparent">
             sesión
           </span>
         </h1>

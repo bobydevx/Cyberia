@@ -30,7 +30,7 @@ function Register() {
           <p className="font-jetbrain font-bold text-md text-pink-500 uppercase">
             Crear Cuenta
           </p>
-          <h3 className="font-outfit font-bold text-3xl">Únete a Cyberia</h3>
+          <h3 className="font-bold text-3xl">Únete a Cyberia</h3>
           <p className="text-white/70">
             El club gamer más exclusivo me espera.{" "}
           </p>
@@ -40,7 +40,7 @@ function Register() {
           {/* Username */}
           <div className="flex flex-col gap-4">
             <label
-              className="font-jetbrain text-blue-secondary uppercase"
+              className="font-jetbrain text-secondary uppercase"
               htmlFor="username"
             >
               Username
@@ -59,7 +59,7 @@ function Register() {
           <div className="relative flex flex-col gap-4 w-3/4">
             <label
               htmlFor="password"
-              className="font-jetbrain text-blue-secondary text-md uppercase"
+              className="font-jetbrain text-md text-secondary uppercase"
             >
               Contraseña
             </label>
@@ -84,7 +84,7 @@ function Register() {
           <div className="relative flex flex-col gap-4 w-3/4">
             <label
               htmlFor="repeat_password"
-              className="font-jetbrain text-blue-secondary text-md uppercase"
+              className="font-jetbrain text-md text-secondary uppercase"
             >
               Repetir Contraseña
             </label>
@@ -134,7 +134,7 @@ function Register() {
           <Button icon={<IoIosArrowForward />} text="Crear cuenta" />
           <p>
             ¿Ya tienes cuenta?{" "}
-            <Link to="/login" className="text-blue-secondary">
+            <Link to="/login" className="text-secondary">
               Inicia Sesión
             </Link>
           </p>
@@ -142,7 +142,7 @@ function Register() {
       </form>
       {/* Demo */}
       <div className="bg-gray-950/20 mx-auto my-12 p-6 border border-white/10 rounded-md w-2/4">
-        <p className="font-jetbrain font-semibold text-blue-secondary">Demo:</p>
+        <p className="font-jetbrain font-semibold text-secondary">Demo:</p>
 
         <div>
           <div className="flex flex-col gap-1 my-4 text-gray-400">
@@ -153,7 +153,7 @@ function Register() {
               admin: <span>Admin123</span> / <span>Admin123!</span>
             </p>
           </div>
-          <button className="flex items-center gap-2 bg-blue-secondary mx-auto mt-8 px-4 py-2 rounded-md font-bold text-black">
+          <button className="flex items-center gap-2 bg-secondary mx-auto mt-8 px-4 py-2 rounded-md font-bold text-black">
             <span>Entrar con demo</span>
             <IoIosArrowForward />
           </button>

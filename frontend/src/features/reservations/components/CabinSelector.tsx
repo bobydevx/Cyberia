@@ -1,4 +1,4 @@
-import type { Cabin } from "@/features/cabinas/types/cabin";
+import type { Cabin } from "@/features/cabins/types/cabin";
 import clsx from "clsx";
 
 interface Props {
@@ -26,12 +26,12 @@ function CabinSelector({ cabins, selectedCabin, onChange }: Props) {
                 "p-4 border rounded-md text-left transition-all",
                 cabin.status !== "available" && "opacity-40 cursor-not-allowed",
                 selectedCabin === cabin.id &&
-                  "bg-blue-secondary/20 border-blue-secondary",
+                  "bg-blue-secondary/20 border-secondary",
               )}
             >
               <div className="flex justify-between font-black">
                 <p>{cabin.name}</p>
-                <p className="text-blue-secondary text-xl">{cabin.price}€</p>
+                <p className="text-secondary text-xl">{cabin.price}€</p>
               </div>
               <div className="text-gray-400">
                 {cabin.graphic_card} · {cabin.processor}
