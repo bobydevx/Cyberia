@@ -6,10 +6,10 @@ import LayoutWelcome from "@/shared/components/LayoutWelcome";
 import Register from "@/features/auth/pages/register";
 import Dashboard from "@/features/dashboard/pages/dashboard";
 import Layout from "@/shared/components/Layout";
-import Cabinas from "@/features/cabinas/pages/cabinas";
-import MyReservations from "@/features/reservas/pages/MyReservations";
-import CabinBooking from "@/features/reservas/pages/CabinBooking";
-import Juegos from "@/features/juegos/pages/juegos";
+import Cabins from "@/features/cabins/pages/cabins";
+import MyReservations from "@/features/reservations/pages/MyReservations";
+import CabinBooking from "@/features/reservations/pages/CabinBooking";
+import Games from "@/features/games/pages/games";
 import Menu from "@/features/menu/pages/menu";
 
 function App() {
@@ -30,10 +30,10 @@ function App() {
       <Route element={<Layout />}>
         {/* <Route index element={<Dashboard />} /> */}
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="cabinas" element={<Cabinas />} />
+        <Route path="cabinas" element={<Cabins />} />
         <Route path="mis-reservas" element={<MyReservations />} />
         <Route path="reserva/:id" element={<CabinBooking />} />
-        <Route path="juegos" element={<Juegos />} />
+        <Route path="juegos" element={<Games />} />
         <Route path="menu" element={<Menu />} />
       </Route>
     </Routes>

@@ -17,7 +17,7 @@ function FAQCard({
   return (
     <div
       className={clsx(
-        "relative bg-gray-900/65 py-5 pr-16 pl-12 border border-white/10 transition-all duration-300 roundedlgl",
+        "relative bg-gray-900/65 py-5 pr-16 pl-12 border border-white/10 transition-all duration-300",
         isOpenToggle ? "min-h-28" : "min-h-20",
       )}
     >
@@ -31,7 +31,7 @@ function FAQCard({
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpenToggle}
         aria-label={isOpenToggle ? "Cerrar respuesta" : "Abrir respuesta"}
-        className="top-4 right-4 absolute text-blue-secondary text-2xl hover:scale-110 transition-transform cursor-pointer"
+        className="top-4 right-4 absolute text-secondary text-2xl hover:scale-110 transition-transform cursor-pointer"
       >
         {isOpenToggle ? <TbMinus /> : <GoPlus />}
       </button>

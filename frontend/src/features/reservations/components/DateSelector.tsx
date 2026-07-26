@@ -24,8 +24,8 @@ function DateSelector({ dates, selectedDate, onChange }: Props) {
             className={clsx(
               "px-8 py-6 border border-white/20 rounded-md text-gray-300 transition-all cursor-pointer",
               isSameDay(selectedDate, date)
-                ? "bg-blue-secondary/20 border-blue-secondary"
-                : "hover:border-blue-secondary/40",
+                ? "bg-secondary/20 border-secondary"
+                : "hover:border-secondary/40",
             )}
           >
             <div className="flex flex-col items-center">

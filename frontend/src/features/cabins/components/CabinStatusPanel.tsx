@@ -11,7 +11,7 @@ function CabinStatusPanel({ id, name, price, status }: Cabin) {
         </span>
         <div className="flex flex-col gap-2">
           <span className="font-manrope font-bold text-sm">{name}</span>
-          <span className="font-jetbrain text-[#6b7280] text-sm">
+          <span className="font-jetbrain text-text-secondary text-sm">
             {price} € / hr
           </span>
         </div>
@@ -20,8 +20,7 @@ function CabinStatusPanel({ id, name, price, status }: Cabin) {
       <button
         className={clsx(
           "px-4 py-2 border rounded-xs w-36",
-          (status === "available" &&
-            "border-green-primary text-green-primary bg-green-primary/20") ||
+          (status === "available" && "border-lime text-lime bg-lime/20") ||
             (status === "reserve" &&
               "border-red-500 text-red-500 bg-red-500/20") ||
             (status === "maintenance" &&

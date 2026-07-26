@@ -10,9 +10,9 @@ function RatingCard({
   opinion: string;
 }) {
   return (
-    <article className="bg-gray-900 p-4 border border-white/20 rounded-md">
+    <article className="bg-gray-900 px-8 py-4 border border-white/10">
       {/* Rating star */}
-      <div className="flex gap-1 text-blue-secondary text-xl">
+      <div className="flex gap-1 text-secondary text-xl">
         <FaStar />
         <FaStar />
         <FaStar />

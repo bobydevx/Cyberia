@@ -27,32 +27,32 @@ function Footer() {
       <div className="grid grid-cols-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-blue-secondary">
+            <span className="text-secondary">
               <FiCoffee />
             </span>
-            <p className="font-outfit font-black">CYBERIA</p>
+            <p className="font-black">CYBERIA</p>
           </div>
           <p className="mt-6 font-manrope text-gray-300 text-sm leading-relaxed">
             Cabinas esports premium. Reserva, conéctate, conquista.
           </p>
         </div>
         <div>
-          <p className="font-jetbrain text-blue-secondary text-md uppercase">
+          <p className="font-jetbrain text-md text-secondary uppercase">
             Producto
           </p>
           <ul className="mt-2 text-gray-300">
             <li>
-              <Link to="/welcome#cabin" className="hover:text-white">
+              <Link to="/#cabin" className="hover:text-white">
                 Cabinas
               </Link>
             </li>
             <li>
-              <Link to="/welcome#game" className="hover:text-white">
+              <Link to="/#game" className="hover:text-white">
                 Juegos
               </Link>
             </li>
             <li>
-              <Link to="/welcome#menu" className="hover:text-white">
+              <Link to="/#menu" className="hover:text-white">
                 Menú
               </Link>
             </li>

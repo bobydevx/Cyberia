@@ -25,7 +25,7 @@ function CabinCard({
   const specs = [
     {
       icon: <GoCpu />,
-      color: "text-blue-secondary",
+      color: "text-secondary",
       value: processor,
     },
     {
@@ -45,7 +45,7 @@ function CabinCard({
   const statusConfig = {
     available: {
       label: "Disponible",
-      className: "bg-green-primary/10 text-green-primary",
+      className: "bg-lime/10 text-lime",
     },
     reserve: {
       label: "Reservada",
@@ -59,20 +59,14 @@ function CabinCard({
 
   const currentStatus = statusConfig[status];
 
-  console.log(status);
-
   return (
     <div
       key={id}
-      className="hover:shadow-blue-secondary/30 hover:shadow-xl border border-white/20 transition-all hover:-translate-y-1 cursor-pointer"
+      className="hover:shadow-secondary/30 hover:shadow-xl border border-white/20 transition-all hover:-translate-y-1 cursor-pointer"
     >
       {/* Top */}
       <div className="relative w-full aspect-4/3">
-        <img
-          src={"src/assets/img/" + image}
-          alt=""
-          className="w-full h-full object-cover"
-        />
+        <img src={image} alt="" className="w-full h-full object-cover" />
 
         <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/20 to-transparent"></div>
         <span
@@ -90,7 +84,7 @@ function CabinCard({
           <h2 className="font-outfit font-bold text-xl">{name}</h2>
 
           <div className="flex flex-col items-center">
-            <span className="font-black text-blue-secondary text-2xl">
+            <span className="font-black text-secondary text-2xl">
               {price} €
             </span>
             <span className="text-gray-400 text-xs tracking-widest">/HORA</span>
@@ -117,14 +111,14 @@ function CabinCard({
               className={clsx(
                 "block gap-1 px-8 py-4 rounded-lg w-full font-bold text-black text-center uppercase",
                 status === "available"
-                  ? "bg-blue-secondary cursor-pointer"
-                  : "bg-blue-secondary/10 cursor-not-allowed",
+                  ? "bg-secondary cursor-pointer"
+                  : "bg-secondary/10 cursor-not-allowed",
               )}
             >
               Reservar
             </Link>
           ) : (
-            <span className="block gap-1 bg-blue-secondary/10 px-8 py-4 rounded-lg w-full font-bold text-black text-center uppercase cursor-not-allowed">
+            <span className="block gap-1 bg-secondary/10 px-8 py-4 rounded-lg w-full font-bold text-black text-center uppercase cursor-not-allowed">
               Reservar
             </span>
           ))}

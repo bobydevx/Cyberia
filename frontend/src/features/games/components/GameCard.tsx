@@ -8,7 +8,7 @@ function GameCard({ game }) {
   const [randomRating] = useState(() => (Math.random() + 4).toFixed(1));
 
   return (
-    <article className="relative hover:shadow-xl border-2 border-white/20 hover:border-2 hover:border-blue-secondary/50 rounded-md min-h-120 overflow-hidden transition-all hover:-translate-y-1 duration-300">
+    <article className="relative hover:shadow-xl border-2 border-white/20 hover:border-2 hover:border-secondary/50 rounded-md min-h-120 overflow-hidden transition-all hover:-translate-y-1 duration-300">
       <div className="absolute inset-0 bg-black/10"></div>
       <img
         src={background_image}
@@ -17,12 +17,10 @@ function GameCard({ game }) {
       />
 
       <div className="bottom-4 left-4 absolute px-4">
-        <span className="font-jetbrain text-blue-secondary/70 text-sm uppercase">
+        <span className="font-jetbrain text-secondary/70 text-sm uppercase">
           {genres[0]?.name || "Variado"}
         </span>
-        <h3 className="pt-1 font-outfit font-bold text-md text-white">
-          {name}
-        </h3>
+        <h3 className="pt-1 font-bold text-md text-white">{name}</h3>
 
         <span className="font-jetbrain font-black text-white/60">{names}</span>
       </div>

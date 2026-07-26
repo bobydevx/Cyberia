@@ -19,12 +19,10 @@ function Login() {
     <section className="bg-gray-900 mx-auto my-8 py-4 w-3xl h-fit">
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-2 my-8 ml-12">
-          <p className="font-jetbrain font-bold text-blue-secondary text-lg uppercase">
+          <p className="font-jetbrain font-bold text-secondary text-lg uppercase">
             Acceso
           </p>
-          <h3 className="font-outfit font-bold text-3xl">
-            Bienvenido de vuelta
-          </h3>
+          <h3 className="font-bold text-3xl">Bienvenido de vuelta</h3>
           <p className="text-white/70">Ingresa para continuar tu partida</p>
         </div>
         {/* Campos Formulario */}
@@ -32,7 +30,7 @@ function Login() {
           {/* Username */}
           <div className="flex flex-col gap-4">
             <label
-              className="font-jetbrain text-blue-secondary uppercase"
+              className="font-jetbrain text-secondary uppercase"
               htmlFor="username"
             >
               Username
@@ -51,7 +49,7 @@ function Login() {
           <div className="flex flex-col gap-4">
             <label
               htmlFor="password"
-              className="font-jetbrain text-blue-secondary text-md uppercase"
+              className="font-jetbrain text-md text-secondary uppercase"
             >
               Contraseña
             </label>
@@ -73,10 +71,10 @@ function Login() {
         </div>
         {/*  */}
         <div className="flex flex-col items-center gap-4 mt-8">
-          <Button icon={<IoIosArrowForward />} text="Enviar" />
+          <Button icon={<IoIosArrowForward />} text="Acceder" />
           <p>
             ¿Sin cuenta?{" "}
-            <Link to="/register" className="text-blue-secondary">
+            <Link to="/register" className="text-secondary">
               Registrate
             </Link>
           </p>
@@ -84,7 +82,7 @@ function Login() {
       </form>
       {/* Demo */}
       <div className="bg-gray-950/20 mx-auto my-12 p-6 border border-white/10 rounded-md w-2/4">
-        <p className="font-jetbrain font-semibold text-blue-secondary">Demo:</p>
+        <p className="font-jetbrain font-semibold text-secondary">Demo:</p>
 
         <div>
           <div className="flex flex-col gap-1 my-4 text-gray-400">
@@ -95,7 +93,7 @@ function Login() {
               admin: <span>Admin123</span> / <span>Admin123!</span>
             </p>
           </div>
-          <button className="flex items-center gap-2 bg-blue-secondary mx-auto mt-8 px-4 py-2 rounded-md font-bold text-black">
+          <button className="flex items-center gap-2 bg-secondary mx-auto mt-8 px-4 py-2 rounded-md font-bold text-black">
             <span>Entrar con demo</span>
             <IoIosArrowForward />
           </button>

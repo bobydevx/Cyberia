@@ -24,7 +24,7 @@ function HourSelector({ hours, selectedHour, onChange }: Props) {
                 className={clsx(
                   "px-5 py-3.5 border rounded-md",
                   selectedHour?.getTime() === hour.getTime()
-                    ? "bg-blue-secondary text-black"
+                    ? "bg-secondary text-black"
                     : "border-white/30",
                 )}
               >

@@ -1,5 +1,5 @@
-import ReservaCard from "@/features/reservas/components/ReservaCard";
-import type { Reservation } from "@/features/reservas/types/reserva";
+import ReservaCard from "@/features/reservations/components/ReservaCard";
+import type { Reservation } from "@/features/reservations/types/reservation";
 import Button from "@/shared/components/Button";
 import { useState } from "react";
 import { BsActivity } from "react-icons/bs";
@@ -14,7 +14,7 @@ import StatCard from "@/features/dashboard/components/StatCard";
 function Dashboard() {
   const [user, setUser] = useState({ username: "fk-user", rol: "sesión" });
 
-  const [reservas, setReservas] = useState<Reservation[]>([
+  const [reservations, setReservations] = useState<Reservation[]>([
     {
       id: 0,
       user_id: 1,
@@ -27,45 +27,46 @@ function Dashboard() {
     },
   ]);
 
-  const [stats, setStats] = useState([
+  const [stats] = useState([
     {
-      nombre: "Próximas Reservas",
-      valor: reservas.length,
-      icono: <CiCalendar />,
+      name: "Próximas Reservas",
+      value: reservations.length,
+      icon: <CiCalendar />,
       color:
-        "text-blue-secondary shadow-blue-secondary/30 from-blue-secondary/10 border-blue-secondary/20",
+        "text-secondary shadow-secondary/30 from-secondary/10 border-secondary/20",
     },
     {
-      nombre: "Reservas Totales",
-      valor: reservas.length,
-      icono: <IoTrophyOutline />,
+      name: "Reservas Totales",
+      value: reservations.length,
+      icon: <IoTrophyOutline />,
       color:
         "text-pink-500 shadow-pink-500/30 from-pink-500/10 border-pink-500/20",
     },
     {
-      nombre: "Sesiones Activas",
-      valor: 0,
-      icono: <BsActivity />,
+      name: "Sesiones Activas",
+      value: 0,
+      icon: <BsActivity />,
       color:
         "text-purple-500 shadow-purple-500/30 from-purple-500/10 border-purple-500/20",
     },
     {
-      nombre: "Total invertido",
-      valor:
-        reservas.reduce((total, reserva) => (total += reserva.price), 0) + "€",
-      icono: <HiOutlineLightningBolt />,
+      name: "Total invertido",
+      value:
+        reservations.reduce((total, reserva) => (total += reserva.price), 0) +
+        "€",
+      icon: <HiOutlineLightningBolt />,
       color:
-        "text-blue-secondary shadow-blue-secondary/30 from-blue-secondary/10 border-blue-secondary/20",
+        "text-secondary shadow-secondary/30 from-secondary/10 border-secondary/20",
     },
   ]);
 
   return (
     <section className="bg-linear-to-b from-gray-950 via-[#111827] to-black px-12 py-10 w-full min-h-screen">
       <div className="space-y-2">
-        <p className="font-mono text-blue-secondary uppercase">Dashboard</p>
-        <h1 className="font-outfit font-black text-4xl">
+        <p className="font-mono text-secondary uppercase">Dashboard</p>
+        <h1 className="font-black text-4xl secondar">
           Hola,{" "}
-          <span className="bg-clip-text bg-linear-to-b from-blue-secondary to-blue-primary text-transparent">
+          <span className="bg-clip-text bg-linear-to-b from-secondary to-primary text-transparent">
             {user.username}
           </span>
         </h1>
@@ -81,15 +82,15 @@ function Dashboard() {
             <p className="font-bold text-lg">Próximas sesiones</p>
             <Link
               to="mis-reservas"
-              className="hover:border-b font-mono font-bold text-blue-secondary text-sm uppercase"
+              className="hover:border-b font-mono font-bold text-secondary text-sm uppercase"
             >
               Ver Todas
             </Link>
           </div>
 
-          {reservas && reservas.length >= 1 ? (
+          {reservations && reservations.length >= 1 ? (
             <div className="mx-6">
-              {reservas.map((reserva) => (
+              {reservations.map((reserva) => (
                 <ReservaCard {...reserva} />
               ))}
             </div>
@@ -111,7 +112,7 @@ function Dashboard() {
               to="/cabinas"
               className="block space-y-2 bg-gray-900 p-4 border border-white/10 rounded-md"
             >
-              <div className="flex items-center gap-2 font-bold text-blue-secondary text-xs uppercase">
+              <div className="flex items-center gap-2 font-bold text-secondary text-xs uppercase">
                 <IoIosArrowRoundForward />
                 Reservar
               </div>

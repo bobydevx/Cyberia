@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { CiFilter } from "react-icons/ci";
-import type { Cabin } from "@/features/cabinas/types/cabin";
-import CabinCard from "@/features/cabinas/components/CabinCard";
+import type { Cabin } from "@/features/cabins/types/cabin";
+import CabinCard from "@/features/cabins/components/CabinCard";
 
-function Cabinas() {
-  const [cabinas, setCabinas] = useState<Cabin[]>([
+function Cabins() {
+  const [cabins, setCabins] = useState<Cabin[]>([
     {
       id: 1,
       name: "Cabina Alpha - 01",
       price: 15,
       status: "available",
       graphic_card: "RTX 5090",
-      image: "cabina_01.jpg",
+      image: "/img/cabina_01.jpg",
       processor: "Intel i9-14900K",
       ram: "32 RAM",
     },
@@ -21,7 +21,7 @@ function Cabinas() {
       price: 12,
       status: "maintenance",
       graphic_card: "RTX 5090",
-      image: "cabina_02.jpg",
+      image: "/img/cabina_02.jpg",
       processor: "Intel i9-14900K",
       ram: "32 RAM",
     },
@@ -31,7 +31,7 @@ function Cabinas() {
       price: 20,
       status: "reserve",
       graphic_card: "RTX 5090",
-      image: "cabina_03.jpg",
+      image: "/img/cabina_03.jpg",
       processor: "Intel i9-14900K",
       ram: "32 RAM",
     },
@@ -41,7 +41,7 @@ function Cabinas() {
       price: 10,
       status: "available",
       graphic_card: "RTX 5090",
-      image: "cabina_04.jpg",
+      image: "/img/cabina_04.jpg",
       processor: "Intel i9-14900K",
       ram: "32 RAM",
     },
@@ -51,7 +51,7 @@ function Cabinas() {
       price: 10,
       status: "available",
       graphic_card: "RTX 5090",
-      image: "cabina_05.jpg",
+      image: "/img/cabina_05.jpg",
       processor: "Intel i9-14900K",
       ram: "32 RAM",
     },
@@ -61,7 +61,7 @@ function Cabinas() {
       price: 10,
       status: "available",
       graphic_card: "RTX 5090",
-      image: "cabina_06.jpg",
+      image: "/img/cabina_06.jpg",
       processor: "Intel i9-14900K",
       ram: "32 RAM",
     },
@@ -69,7 +69,7 @@ function Cabinas() {
 
   const [status, setStatus] = useState("all");
 
-  const cabinasFiltradas = cabinas.filter((c) => {
+  const cabinsFiltered = cabins.filter((c) => {
     if (status === "" || status === "all") return true;
 
     return c.status === status;
@@ -97,10 +97,10 @@ function Cabinas() {
   return (
     <section className="bg-linear-to-b from-gray-950 via-[#111827] to-black px-12 py-10 w-full min-h-screen">
       <div className="space-y-2">
-        <p className="font-mono text-blue-secondary uppercase">Explorar</p>
-        <h1 className="font-outfit font-black text-4xl">
+        <p className="font-mono text-secondary uppercase">Explorar</p>
+        <h1 className="font-black text-4xl">
           Cabinas{" "}
-          <span className="bg-clip-text bg-linear-to-b from-blue-secondary to-blue-primary text-transparent">
+          <span className="bg-clip-text bg-linear-to-b from-secondary to-primary text-transparent">
             disponibles
           </span>
         </h1>
@@ -117,7 +117,7 @@ function Cabinas() {
             className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 cursor-pointer
               ${
                 status === filter.value
-                  ? "bg-blue-secondary text-white shadow-lg shadow-blue-secondary/30"
+                  ? "bg-secondary text-white shadow-lg shadow-secondary/30"
                   : "border border-white/10 bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
               }
             `}
@@ -127,10 +127,10 @@ function Cabinas() {
         ))}
       </div>
 
-      {cabinasFiltradas && cabinasFiltradas.length >= 1 && (
+      {cabinsFiltered && cabinsFiltered.length >= 1 && (
         <div className="gap-4 grid grid-cols-4 mt-10">
-          {cabinasFiltradas.map((cabina) => (
-            <CabinCard key={cabina.id} {...cabina} show={true} />
+          {cabinsFiltered.map((cabin) => (
+            <CabinCard key={cabin.id} {...cabin} show={true} />
           ))}
         </div>
       )}
@@ -138,4 +138,4 @@ function Cabinas() {
   );
 }
 
-export default Cabinas;
+export default Cabins;

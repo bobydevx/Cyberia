@@ -2,7 +2,7 @@ import Button from "@/shared/components/Button";
 import { useMemo, useState } from "react";
 import { CiFilter } from "react-icons/ci";
 import { PiJoystickThin } from "react-icons/pi";
-import type { Reservation } from "../types/reserva";
+import type { Reservation } from "../types/reservation";
 import ReservaCard from "../components/ReservaCard";
 
 function MyReservations() {
@@ -60,7 +60,7 @@ function MyReservations() {
     },
   ];
 
-  const reservasFiltradas = reservations.filter((r) => {
+  const reservationsFiltered = reservations.filter((r) => {
     if (status === "all") return true;
 
     return r.status === status;
@@ -81,13 +81,13 @@ function MyReservations() {
       {/* HEADER */}
       <div className="flex lg:flex-row flex-col lg:justify-between lg:items-center gap-6">
         <div>
-          <p className="font-mono text-blue-secondary text-xs uppercase tracking-[0.3em]">
+          <p className="font-mono text-secondary text-xs uppercase tracking-[0.3em]">
             Mi historial
           </p>
 
-          <h1 className="mt-2 font-outfit font-black text-white text-5xl">
+          <h1 className="mt-2 font-black text-white text-5xl">
             Mis{" "}
-            <span className="bg-clip-text bg-linear-to-r from-blue-secondary to-blue-primary text-transparent">
+            <span className="bg-clip-text bg-linear-to-r from-secondary to-primary text-transparent">
               Reservas
             </span>
           </h1>
@@ -145,7 +145,7 @@ function MyReservations() {
             className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 cursor-pointer
               ${
                 status === filter.value
-                  ? "bg-blue-secondary text-white shadow-lg shadow-blue-secondary/30"
+                  ? "bg-secondary text-white shadow-lg shadow-secondary/30"
                   : "border border-white/10 bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
               }
             `}
@@ -156,9 +156,9 @@ function MyReservations() {
       </div>
 
       {/* LISTA */}
-      {reservasFiltradas.length > 0 ? (
+      {reservationsFiltered.length > 0 ? (
         <div className="gap-6 grid mt-10">
-          {reservasFiltradas.map((reserva) => (
+          {reservationsFiltered.map((reserva) => (
             <div
               key={reserva.id}
               className="hover:scale-[1.01] transition-all hover:-translate-y-1 duration-300"
@@ -169,7 +169,7 @@ function MyReservations() {
         </div>
       ) : (
         <div className="flex flex-col items-center bg-white/5 backdrop-blur-md mx-auto mt-20 px-8 py-14 border border-white/10 rounded-3xl w-full">
-          <div className="flex justify-center items-center bg-blue-secondary/10 rounded-full w-24 h-24 text-blue-secondary text-6xl">
+          <div className="flex justify-center items-center bg-secondary/10 rounded-full w-24 h-24 text-secondary text-6xl">
             <PiJoystickThin />
           </div>
 
