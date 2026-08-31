@@ -12,8 +12,22 @@ dist
 dist-ssr
 *.local
 
+# .NET / ASP.NET Core
+bin/
+obj/
+*.sln.docstates
+
+# ASP.NET Core local settings
+appsettings.Development.json
+appsettings.Local.json
+!appsettings.*.example.json
+
+
+
+
 # Editor directories and files
 .vscode/*
+*/.vs/*
 !.vscode/extensions.json
 .idea
 .DS_Store
