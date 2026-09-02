@@ -10,17 +10,16 @@ namespace Cyberia.Domain.Entities
     public class Cabin
     {
         public int Id { get; set; }
-
         public required string Name { get; set; }
-        public string Image { get; set; }
-        public double PricePerHour { get; set; }
-        public CabinState Status { get; set; }
-        public int GraphicCardId { get; set; }
-        public GraphicCard GraphicCard { get; set; }
-        public int ProcessorId { get; set; }
-        public Processor Processor { get; set; }
-        public int RamId { get; set; }
-        public Ram Ram { get; set; }
+        public required string Image { get; set; }
+        public required double PricePerHour { get; set; }
+        public required CabinState Status { get; set; }
+        public required int GraphicCardId { get; set; }
+        public required GraphicCard GraphicCard { get; set; }
+        public required int ProcessorId { get; set; }
+        public required Processor Processor { get; set; }
+        public required int RamId { get; set; }
+        public required Ram Ram { get; set; }
 
     }
 }
