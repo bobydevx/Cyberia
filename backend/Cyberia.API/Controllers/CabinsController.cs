@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Cyberia.Domain.Entities;
 using Cyberia.Infrastructure.Persistence;
+using Cyberia.Domain.Enums;
+using Cyberia.Application.DTOs;
 
 namespace Cyberia.API.Controllers
 {

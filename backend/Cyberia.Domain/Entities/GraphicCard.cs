@@ -15,5 +15,8 @@ namespace Cyberia.Domain.Entities
         public string Memory { get; set; }
         public string TypeMemory { get; set; }
         public string AssemblerType { get; set; }
+
+
+       public ICollection<Cabin> Cabins { get; set; } = new List<Cabin>();
     }
 }

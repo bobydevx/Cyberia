@@ -17,5 +17,8 @@ namespace Cyberia.Domain.Entities
         public bool IsGpuIntegrated { get; set; }
         public bool HaveHeatSink { get; set; }
         public int Cores { get; set; }
+
+        public ICollection<Cabin> Cabins { get; set; } = new List<Cabin>();
+
     }
 }

@@ -10,7 +10,9 @@ app.UseHttpsRedirection();
 
 
 
-
+app.MapGet("/", () => {
+    return "Hello World!";
+});
 
 app.Run();
 

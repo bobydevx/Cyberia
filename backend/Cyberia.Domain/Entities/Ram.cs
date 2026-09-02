@@ -13,5 +13,8 @@ namespace Cyberia.Domain.Entities
         public string Type { get; set; }
         public string Capacity { get; set; }
         public int Kits { get; set; }
+
+        public ICollection<Cabin> Cabins { get; set; } = new List<Cabin>();
+
     }
 }
