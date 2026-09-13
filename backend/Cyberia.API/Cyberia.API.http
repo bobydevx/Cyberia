@@ -1,6 +1,6 @@
 @Cyberia.API_HostAddress = http://localhost:5130
 
-GET {{Cyberia.API_HostAddress}}/cyberia/
+GET {{Cyberia.API_HostAddress}}/api/cabin
 Accept: application/json
 
 ###

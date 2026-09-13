@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Controllers
+builder.Services.AddControllers();
+
+// DbContext 
 builder.Services.AddDbContext<CyberiaDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -19,6 +23,8 @@ app.MapGet("/", () =>
 {
     return "Hello World!";
 });
+
+app.MapControllers();
 
 app.Run();
 
