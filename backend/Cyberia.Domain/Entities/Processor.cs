@@ -1,24 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cyberia.Domain.Entities
+﻿namespace Cyberia.Domain.Entities
 {
     public class Processor
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Brand { get; set; }
-        public string Socket { get; set; }
-        public string Family { get; set; }
-        public string Generation { get; set; }
-        public bool IsGpuIntegrated { get; set; }
-        public bool HaveHeatSink { get; set; }
-        public int Cores { get; set; }
+        public int Id { get; private set; }
 
-        public ICollection<Cabin> Cabins { get; set; } = new List<Cabin>();
+        public string Name { get; private set; } = string.Empty;
 
+        public string Brand { get; private set; } = string.Empty;
+
+        public string Socket { get; private set; } = string.Empty;
+
+        public string Family { get; private set; } = string.Empty;
+
+        public string Generation { get; private set; } = string.Empty;
+
+        public bool HasIntegratedGpu { get; private set; }
+
+        public bool IncludesHeatsink { get; private set; }
+
+        public int CoreCount { get; private set; }
+
+        public ICollection<Cabin> Cabins { get; private set; } = new List<Cabin>();
+
+        public Processor(
+               string name,
+               string brand,
+               string socket,
+               string family,
+               string generation,
+               bool hasIntegratedGpu,
+               bool includesHeatsink,
+               int coreCount)
+        {
+            Name = name;
+            Brand = brand;
+            Socket = socket;
+            Family = family;
+            Generation = generation;
+            HasIntegratedGpu = hasIntegratedGpu;
+            IncludesHeatsink = includesHeatsink;
+            CoreCount = coreCount;
+        }
     }
 }
