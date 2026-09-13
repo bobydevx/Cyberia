@@ -11,7 +11,7 @@ namespace Cyberia.Infrastructure.Persistence
 
         public CyberiaDbContext(DbContextOptions<CyberiaDbContext> options) : base(options)
         {
-            
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

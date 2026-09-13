@@ -9,9 +9,6 @@ namespace Cyberia.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Cabin> builder)
         {
-            // Cabin
-            //modelBuilder.Entity<Cabin>().HasKey()
-
             builder.ToTable("cabins");
 
             builder.HasKey(c => c.Id);
@@ -20,8 +17,7 @@ namespace Cyberia.Infrastructure.Configurations
                 .HasMaxLength(100)
                 .IsRequired();
 
-
-            builder.Property(c => c.Image)
+            builder.Property(c => c.ImageUrl)
                 .IsRequired();
 
             builder.Property(c => c.PricePerHour)
@@ -29,23 +25,25 @@ namespace Cyberia.Infrastructure.Configurations
                 .HasColumnName("price_per_hour")
                 .IsRequired();
 
-
             builder.Property(c => c.Status)
                 .IsRequired();
 
             // Relationships
 
-            builder.HasOne(c => c.GraphicCard)
+            builder.HasOne(c => c.GraphicsCard)
                 .WithMany(g => g.Cabins)
-                .HasForeignKey(c => c.GraphicCardId);
+                .HasForeignKey(c => c.GraphicsCardId)
+                .IsRequired();
 
             builder.HasOne(c => c.Processor)
                 .WithMany(p => p.Cabins)
-                .HasForeignKey(c => c.ProcessorId);
+                .HasForeignKey(c => c.ProcessorId)
+                .IsRequired();
 
             builder.HasOne(c => c.Ram)
                 .WithMany(r => r.Cabins)
-                .HasForeignKey(c => c.RamId);
+                .HasForeignKey(c => c.RamId)
+                .IsRequired();
         }
     }
 }
