@@ -8,21 +8,15 @@ namespace Cyberia.Infrastructure.Persistence
     {
         public CyberiaDbContext CreateDbContext(string[] args)
         {
-
-            var basePath = Path.Combine(
-            Directory.GetCurrentDirectory(),
-            "..",
-            "Cyberia.Api");
+            var basePath = Path.Combine(Directory.GetCurrentDirectory(), "..", "Cyberia.Api");
 
             var configuration = new ConfigurationBuilder()
-             .SetBasePath(basePath)
-             .AddJsonFile("appsettings.json", optional: true)
-             .AddJsonFile("appsettings.Development.json", optional: false)
-             .Build();
+                .SetBasePath(basePath)
+                .AddJsonFile("appsettings.json", optional: true)
+                .AddJsonFile("appsettings.Development.json", optional: false)
+                .Build();
 
-
-            var connectionString =
-                configuration.GetConnectionString("DefaultConnection");
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             var optionsBuilder = new DbContextOptionsBuilder<CyberiaDbContext>();
 

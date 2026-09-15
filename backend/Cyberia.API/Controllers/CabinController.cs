@@ -1,6 +1,10 @@
-﻿using Cyberia.Infrastructure.Persistence;
+﻿using Cyberia.API.Mappers;
+using Cyberia.Application.DTOs.Cabin;
+using Cyberia.Infrastructure.Interface;
+using Cyberia.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cyberia.API.Controllers
 {
@@ -8,30 +12,81 @@ namespace Cyberia.API.Controllers
     [ApiController]
     public class CabinController : ControllerBase
     {
-        private readonly CyberiaDbContext _context;
-        public CabinController(CyberiaDbContext context)
+        private readonly ICabinRepository _repo;
+
+        public CabinController(ICabinRepository repo)
         {
-            _context = context;
+
+            _repo = repo;
         }
 
         [HttpGet]
-        public IActionResult GetCabins()
+        public async Task<IActionResult> GetCabins()
         {
-            var cabins = _context.Cabins.ToList();
+            var cabins = await _repo.GetAllAsync();
+            var cabinsDto = cabins.Select((c) => c.toCabinDto());
+
             return Ok(cabins);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetCabinById([FromRoute] int id)
+        public async Task<IActionResult> GetCabinById([FromRoute] int id)
         {
-            var cabin = _context.Cabins.Find(id);
+            var cabin = await _repo.GetByIdAsync(id);
 
-            if(cabin == null)
+            if (cabin == null)
             {
                 return NotFound();
             }
 
-            return Ok(cabin);
+            return Ok(cabin.toCabinDto());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreateCabinDto cabinDto)
+        {
+            var cabinModel = cabinDto.toCabinFromCreateCabin();
+
+            await _repo.CreateAsync(cabinModel);
+
+            return CreatedAtAction(
+                nameof(GetCabinById),
+                new { id = cabinModel.Id },
+                cabinModel.toCabinDto()
+            );
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> Update(
+            [FromBody] UpdateCabinDto cabinDto,
+            [FromRoute] int id
+        )
+        {
+
+            var cabinModel = await  _repo.UpdateAsync(id,cabinDto);
+
+            if (cabinModel == null)
+            {
+                return NotFound();
+            }
+
+
+            return Ok(cabinModel.toCabinDto());
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            var cabinModel = await _repo.DeleteAsync(id);
+
+            if (cabinModel == null)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
         }
     }
 }
