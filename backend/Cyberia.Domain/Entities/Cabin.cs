@@ -4,23 +4,23 @@ namespace Cyberia.Domain.Entities;
 
 public class Cabin
 {
-    public int Id { get; private set; }
+    public int Id { get; set; }
 
-    public string Name { get; private set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
 
-    public string ImageUrl { get; private set; } = string.Empty;
+    public string ImageUrl { get; set; } = string.Empty;
 
-    public decimal PricePerHour { get; private set; }
+    public decimal PricePerHour { get; set; }
 
-    public CabinState Status { get; private set; }
+    public CabinState Status { get; set; }
 
-    public int GraphicsCardId { get; private set; }
-    public GraphicsCard GraphicsCard { get; private set; } = null!;
+    public int GraphicsCardId { get; set; }
+    public GraphicsCard GraphicsCard { get; set; } = null!;
 
-    public int ProcessorId { get; private set; }
-    public Processor Processor { get; private set; } = null!;
+    public int ProcessorId { get; set; }
+    public Processor Processor { get; set; } = null!;
 
-    public int RamId { get; private set; }
-    public Ram Ram { get; private set; } = null!;
+    public int RamId { get; set; }
+    public Ram Ram { get; set; } = null!;
 
 }

@@ -1,4 +1,6 @@
+using Cyberia.Infrastructure.Interface;
 using Cyberia.Infrastructure.Persistence;
+using Cyberia.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,10 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Controllers
 builder.Services.AddControllers();
 
-// DbContext 
+// DbContext
 builder.Services.AddDbContext<CyberiaDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
+// Repositories
+
+builder.Services.AddScoped<ICabinRepository, CabinRepository>();
 // Add services to the container.
 var app = builder.Build();
 
@@ -17,14 +23,14 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-
-
-app.MapGet("/", () =>
-{
-    return "Hello World!";
-});
+app.MapGet(
+    "/",
+    () =>
+    {
+        return "Hello World!";
+    }
+);
 
 app.MapControllers();
 
 app.Run();
-
